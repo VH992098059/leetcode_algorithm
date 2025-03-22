@@ -1,13 +1,5 @@
 package sequence_table
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strconv"
-	"strings"
-)
-
 type SeqQueue struct {
 	data     []int // 存储元素的切片
 	capacity int   // 队列容量
@@ -49,29 +41,30 @@ func (s *SeqQueue) Peek() int {
 	}
 	return s.data[s.front]
 }
-func main() {
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	n, _ := strconv.Atoi(scanner.Text())
-	scanner.Scan()
-	nums := strings.Fields(scanner.Text())
 
-	queue := initQueue(n)
+// func main() {
+// 	scanner := bufio.NewScanner(os.Stdin)
+// 	scanner.Scan()
+// 	n, _ := strconv.Atoi(scanner.Text())
+// 	scanner.Scan()
+// 	nums := strings.Fields(scanner.Text())
 
-	for _, numStr := range nums {
-		num, _ := strconv.Atoi(numStr)
-		if !queue.insertQueue(num) {
-			fmt.Println("错误：队列已满。")
-		}
-	}
-	for i := 0; i <= n; i++ {
-		if queue.isEmpty() {
-			fmt.Println("错误：队列为空。")
-			fmt.Println(queue.Peek()) // 强制返回-1
-			continue
-		}
-		fmt.Println(queue.Peek())
-		queue.popQueue()
-	}
-	fmt.Println("错误：队列为空。")
-}
+// 	queue := initQueue(n)
+
+// 	for _, numStr := range nums {
+// 		num, _ := strconv.Atoi(numStr)
+// 		if !queue.insertQueue(num) {
+// 			fmt.Println("错误：队列已满。")
+// 		}
+// 	}
+// 	for i := 0; i <= n; i++ {
+// 		if queue.isEmpty() {
+// 			fmt.Println("错误：队列为空。")
+// 			fmt.Println(queue.Peek()) // 强制返回-1
+// 			continue
+// 		}
+// 		fmt.Println(queue.Peek())
+// 		queue.popQueue()
+// 	}
+// 	fmt.Println("错误：队列为空。")
+// }
