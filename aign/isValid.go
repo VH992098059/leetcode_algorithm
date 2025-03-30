@@ -1,5 +1,6 @@
 package aign
 
+/*有效的括号*/
 func isValid(s string) bool {
 	left := []rune{}
 	for _, v := range s {
